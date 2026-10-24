@@ -30,17 +30,16 @@ Use the included setup script to create your `.env` file:
 pnpm db:setup
 ```
 
-Run the database migrations and seed the database with a default user and team:
+Before seeding, set `SEED_ADMIN_EMAIL` and `SEED_ADMIN_PASSWORD` in your local `.env` file, which is ignored by Git. Use a unique password with at least 16 characters; the project has no default admin credentials.
+
+Run the database migrations and seed a local development user and team:
 
 ```bash
 pnpm db:migrate
 pnpm db:seed
 ```
 
-This will create the following user and team:
-
-- User: `test@test.com`
-- Password: `admin123`
+The seed creates an administrator using those local environment variables. Do not run the seed command against production data.
 
 You can also create new users through the `/sign-up` route.
 
